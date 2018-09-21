@@ -13,6 +13,20 @@ BOT_NAME = 'retired_players'
 
 SPIDER_MODULES = ['retired_players.spiders']
 NEWSPIDER_MODULE = 'retired_players.spiders'
+ITEM_PIPELINES = {
+    'retired_players.pipelines.MongoPipeline': 300,
+}
+
+
+USERNAME='stats-user'
+PASSWORD='congo-congo'
+PORT='27017'
+HOST='172.104.130.120'
+MONGO_DATABASE = 'basketstats'
+# MONGO_URI = 'mongodb://localhost:27017'
+# MONGO_URI='mongodb+srv://mongo:mongo@cluster0-nfebi.mongodb.net/test?retryWrites=true'
+MONGO_URI='mongodb://'+USERNAME+':'+PASSWORD+'@'+HOST+':'+PORT+'/'+MONGO_DATABASE
+
 
 LOG_ENABLED = False
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
